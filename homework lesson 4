@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of Week</title>
+
+    <script>
+
+       1.Сделайте функцию, которая принимает параметром число от 1 до 7, а возвращает день недели на Анг. языке
+        function dayOfWeek(number) {
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            
+            if (number < 1 || number > 7) {
+                alert("Please enter a number between 1 and 7");
+                return null; 
+            } else {
+                return daysOfWeek[number - 1]; 
+            }
+        }
+
+        function showDayOfWeek() {
+            const number = parseInt(document.getElementById("numberInput").value);
+            const result = dayOfWeek(number);
+            if (result !== null) {
+                document.getElementById("result").textContent = "Day of the week: " + result;
+            } else {
+                document.getElementById("result").textContent = "";
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Find Day of the Week</h1>
+    <label for="numberInput">Enter a number (1-7): </label>
+    <input type="number" id="numberInput" min="1" max="7">
+    <button onclick="showDayOfWeek()">Get Day</button>
+    <p id="result"></p>
+</body>
+</html>
+
+        2.оздайте функцию которая будет заполнять массив 10-ю иксами с помощью цикла.
+
+        var my_arr = new Array();
+for (var i=0; i<10; i++) {
+    my_arr.push('x');
+}
+
+console.log(my_arr); //Array [ "x", "x", "x", "x", "x", "x", "x", "x", "x", "x" ] */
+
+
+
+3.Если переменная a больше нуля - то в ggg запишем функцию, которая выводит один !, иначе запишем функцию, которая выводит два !
+
+ let a = 2;
+        let ggg;
+        if (a > 0) {
+            ggg = function() {
+                return '!';
+            };
+        } else {
+            ggg = function() {
+                return '!!';
+            };
+        }
+        
+        
+        
+        4.Функция ggg принимает 2 параметра: анонимную функцию, которая возвращает 3 и анонимную функцию, которая возвращает 4. Верните результатом функции ggg сумму 3 и 4. 
+        
+    <div id="sum"></div>
+    <script>
+      let result =ggg(
+        function (){
+          return 4;
+        },
+        function(){
+          return 3;
+        }
+        );
+        function ggg(f1,f2){
+        
+            return func1() + func2();
+        }
+
+
+
+
+
+
+5.Сделайте функцию, которая считает и выводит количество своих вызовов.
+
+<body>
+    <div id="callCount"></div>
+    <button onclick="countCalls()">Call Function</button>
+    <script>
+        function createCounter() {
+            let count = 0;
+            return function() {
+                count++;
+                return count;
+            };
+        }
+
+        const countCalls = createCounter();
+        
+</script>
+</body>
