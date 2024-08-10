@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+</head>
+<body>
+
+    <h2>Зарплата Петі та Колі</h2>
+    <div id="salary"></div>
+
+    <h2>Криптогаманці</h2>
+    <div id="walletInfo"></div>
+    <button onclick="showWalletInfo('Bitcoin')">Показати інформацію про Bitcoin</button>
+    <button onclick="showWalletInfo('Ethereum')">Показати інформацію про Ethereum</button>
+    <button onclick="showWalletInfo('Stellar')">Показати інформацію про Stellar</button>
+
+    <h2>Перевірка на порожній об'єкт</h2>
+    <div id="isEmptyCheck"></div>
+
+    <h2>Обмінний курс валют</h2>
+    <div id="exchangeRates"></div>
+
+    <script>
+        // Завдання 1: Виведення зарплати Петі та Колі
+        var obj = {'Коля': '1000', 'Вася': '500', 'Петя': '200'};
+        document.getElementById("salary").innerHTML = `Зарплата Колі: ${obj['Коля']} грн, Зарплата Петі: ${obj['Петя']} грн`;
+
+        // Завдання 2: Криптогаманці
+        var wallet = {
+            owner: 'Власник гаманця',
+            currencies: {
+                'Bitcoin': {
+                    name: 'Bitcoin',
+                    logo: 'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
+                    amount: 2,
+                    rate: 920000 // курс за 1 монету
+                },
+                'Ethereum': {
+                    name: 'Ethereum',
+                    logo: 'https://cryptologos.cc/logos/ethereum-eth-logo.png',
+                    amount: 5,
+                    rate: 58000
+                },
+                'Stellar': {
+                    name: 'Stellar',
+                    logo: 'https://cryptologos.cc/logos/stellar-xlm-logo.png',
+                    amount: 500,
+                    rate: 10
+                }
+            },
+            showInfo: function(currencyName) {
+                let currency = this.currencies[currencyName];
+                let amountInUAH = currency.amount * currency.rate;
+                return `Доброго дня, ${this.owner}! На вашому балансі ${currency.name} 
+                        <img src="${currency.logo}" alt="${currency.name}" width="20px"> 
+                        залишилося ${currency.amount} монет. Якщо ви сьогодні продасте їх, то отримаєте ${amountInUAH} грн.`;
+            }
+        };
+
+        function showWalletInfo(currencyName) {
+            document.getElementById("walletInfo").innerHTML = wallet.showInfo(currencyName);
+        }
+
+        // Завдання 3: Перевірка на порожній об'єкт
+        function isEmpty(obj) {
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        let emptyObj = {};
+        let nonEmptyObj = {key: 'value'};
+
+        
+        
+    </script>
+
+</body>
+</html>
