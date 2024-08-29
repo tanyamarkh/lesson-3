@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New User</title>
+</head>
+<body>
+
+    <h1>Create New Users</h1>
+    <button onclick="createUsers()">Create Users</button>
+
+  
+    <h2>User Logins</h2>
+    <ul id="user-logins"></ul>
+
+    <script>
+     
+        class CreateNewUser {
+            constructor(firstName, lastName) {
+                this.firstName = firstName;
+                this.surname = lastName;
+            }
+
+            getLogin() {
+                return `${this.firstName.charAt(0)}${this.surname}`.toLowerCase();
+            }
+        }
+
+       
+        function createUsers() {
+            // Create an array of new users
+            const newUserList = [
+                new CreateNewUser(prompt("Insert your name:"), prompt("Insert your lastname:")),
+                new CreateNewUser(prompt("Insert your name:"), prompt("Insert your lastname:")),
+                new CreateNewUser(prompt("Insert your name:"), prompt("Insert your lastname:")),
+                new CreateNewUser(prompt("Insert your name:"), prompt("Insert your lastname:")),
+                new CreateNewUser(prompt("Insert your name:"), prompt("Insert your lastname:")),
+                new CreateNewUser(prompt("Insert your name:"), prompt("Insert your lastname:")),
+            ];
+
+          
+            const userLogins = document.getElementById('user-logins');
+
+          
+            userLogins.innerHTML = '';
+
+       
+            newUserList.forEach(user => {
+                const li = document.createElement('li');
+                li.textContent = user.getLogin();
+                userLogins.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
